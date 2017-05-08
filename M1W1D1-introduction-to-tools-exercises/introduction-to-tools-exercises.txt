@@ -210,17 +210,43 @@ $ ls -a
     checkin to the local repository, but also push it up to BitBucket. 
 ----
 
-$ <enter the Git command to display status>
-<type or copy-paste the result here>
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
-$ <enter the Git command to "stage" all changes>
-<type or copy-paste the result here>
+        new file:   Program.cs.copy
 
-$ <enter the Git command to save all "staged" changes>
-<type or copy-paste the result here>
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   ../../introduction-to-tools-exercises.txt
+
+
+$ git add .
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   csharp-helloworld/Helloworld/Program.cs.copy
+        modified:   introduction-to-tools-exercises.txt
+
+
+$ git commit -m "feature complete"
+[master c05bfe7] ??feature complete
+ 2 files changed, 39 insertions(+), 13 deletions(-)
+ create mode 100644 M1W1D1-introduction-to-tools-exercises/csharp-helloworld/Hellowod/Program.cs.copy
 
 $ git push
-<type or copy-paste the result here>
+Counting objects: 24, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (24/24), 697.07 KiB | 0 bytes/s, done.
+Total 24 (delta 4), reused 0 (delta 0)
+To https://bitbucket.org/te-cbus-cohort-2/danielstockham-c-exercises.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
 
 
 ----
@@ -231,8 +257,8 @@ $ rm Program.cs.copy
 
 The "rm" parameter is the name of the file to be deleted.
 
-$ <enter command to list all files and folders in order to confirm the file deletion>
-<type or copy-paste the result here>
+$ ls -a 
+./  ../  App.config  Helloworld.csproj  Program.cs Properties/
 
 
 ----
@@ -253,8 +279,8 @@ command line when that seems natural.
 
 Regardless of the option you chose, check your new location.
 
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ pwd
+/c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld
 
 
 ----
@@ -263,9 +289,10 @@ $ <enter command to display present working directory>
 ----
 
 $ mkdir docs
-$ <enter the command to change directory to "docs" using a relative path>
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ cd docs
+$ pwd
+/c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld/docs
+
 
 ----
 19. Create a new file name "readme.txt" using Notepad, and add the text
@@ -282,10 +309,10 @@ Don't forget to save the file in Notepad!
     work so it can be reviewed by an instructor.
 ----
 
-$ <enter the Git command to display status>
+$ git status
 
-$ <enter the Git command to "stage" all changes>
+$ git add .
 
-$ <enter the Git command to save all "staged" changes>
+$ git commit -m "Added readme and deleted program copy file"
 
-$ <enter the Git command to save local repository to BitBucket>
+$ git push
