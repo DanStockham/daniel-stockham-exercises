@@ -30,8 +30,8 @@ actual command from other text in Unix documentation.
 2.  What does the ~ (tilde) character in the above command to change directory 
     refer to?
 ----
-    --**The tilda character in change directory command brings the user back to the home 
-    --**home directory regardless where the user is in the file system
+    The tilda character in the change directory command brings the user back to the home 
+    home directory regardless where the user is in the file system
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on 
@@ -40,7 +40,7 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
---** /c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld
+ /c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld
 
 
 The present working directory displayed should match the directory you changed 
@@ -57,22 +57,22 @@ changes directory, and the "pwd" command reflects this.
 ----
 
 $ ls -la
---** ./  ../  database/  Helloworld/  Helloworld.sln
+ ./  ../  database/  Helloworld/  Helloworld.sln
 
 
 ----
 5.  What do the "." and ".." folders displayed in the directory listing in
     Exercise 4 represent?
 ----
-    --** ./ represents the current directory the user is in 
-    --** ../ represents the level above the current directory the user is in
+     ./ represents the current directory the user is in 
+     ../ represents the level above the current directory the user is in
 
 ----
 6.  What are the names of the files, including any dot-files, displayed in the
     directory listing in Exercise 4?
 ----
 
-    --** Helloworld.sln
+     Helloworld.sln
 
 
 ----
@@ -80,7 +80,7 @@ $ ls -la
     the directory listing in Exercise 4?
 ----
 
-    --** database/  Helloworld/
+     database/  Helloworld/
 
 
 ----
@@ -127,14 +127,13 @@ Did you remember to save "introduction-to-tools-exercise.txt"?
 
 $ git status
 On branch master
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
+Changes not staged for commit:
         modified:   introduction-to-tools-exercises.txt
 
+no changes added to commit (use "git add" and/or "git commit -a")
 
 $ git add .
-dstockham@DESKTOP-4LJNHR2 MINGW64 ~/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises (master)
+
 
 
 $ git commit -m "Good stopping point"
@@ -153,7 +152,7 @@ BitBucket when a feature, fix, or in this case, assignment is finished.
 
 $ cd Helloworld
 $ ls -a
-   --**/c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld/Helloworld
+   /c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld/Helloworld
 
 
 
@@ -162,7 +161,7 @@ $ ls -a
     path?
 ----
   
-   --**It uses an absolute file path to the directory
+   It uses an absolute file path to the directory
 
 
 ----
@@ -171,7 +170,7 @@ $ ls -a
 ----
 
 $ ls -a
-   --** ./  ../  App.config  Helloworld.csproj  Program.cs  Properties/
+    ./  ../  App.config  Helloworld.csproj  Program.cs  Properties/
 
 
 
@@ -187,7 +186,7 @@ The "cp" parameters are the name of the source file followed by the name of the
 destination file. 
 
 $ ls -a
-  --** App.config  Helloworld.csproj  Program.cs  Program.cs.backup  Properties/
+   App.config  Helloworld.csproj  Program.cs  Program.cs.backup  Properties/
 
 
 
@@ -202,7 +201,7 @@ The "mv" parameters are the existing name of the file followed by the new name
 of the file. 
 
 $ ls -a
-  --** App.config  Helloworld.csproj  Program.cs  Program.cs.copy  Properties/
+   App.config  Helloworld.csproj  Program.cs  Program.cs.copy  Properties/
 
 
 ----
