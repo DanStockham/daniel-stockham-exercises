@@ -40,7 +40,7 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
- /c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld
+  /c/Users/dstockham/danielstockham-c-exercises/M1W1D1-introduction-to-tools-exercises/csharp-helloworld
 
 
 The present working directory displayed should match the directory you changed 
