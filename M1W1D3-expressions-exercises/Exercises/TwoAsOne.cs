@@ -16,7 +16,15 @@ namespace Exercises
          */
         public bool TwoAsOne(int a, int b, int c)
         {
-            return false;
+            
+            if((a+b == c) || (b+c == a) || (c+a == b) )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

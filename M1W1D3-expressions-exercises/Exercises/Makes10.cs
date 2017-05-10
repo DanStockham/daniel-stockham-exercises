@@ -16,7 +16,18 @@ namespace Exercises
         */
         public bool Makes10(int a, int b)
         {
-            return false;
+            if( a + b == 10 )
+            {
+                return true;
+            }
+            else if( a == 10 || b == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

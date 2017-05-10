@@ -19,7 +19,31 @@ namespace Exercises
          */
         public int CaughtSpeeding(int speed, bool isBirthday)
         {
-            return 0;
+            if(speed <= 60 || isBirthday)
+            {
+                if(isBirthday && speed <= 65)
+                {
+                    return 0;
+                }
+                return 0;
+            }
+            else if(speed > 61 || speed < 80)
+            {
+                if(isBirthday && (speed > 66 || speed < 85))
+                {
+                    return 1;
+                }
+                return 1;
+            }
+            else
+            {
+                if(isBirthday && speed > 85)
+                {
+                    return 2;
+                }
+                return 2;
+            }
+            
         }
 
     }
