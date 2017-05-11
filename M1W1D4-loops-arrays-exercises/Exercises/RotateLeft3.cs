@@ -17,7 +17,17 @@ namespace Exercises
          */
         public int[] RotateLeft3(int[] nums)
         {
-            return new int[] { };
+            int[] newArr = new int[3];
+            int firstItem = nums[0];
+            
+            for(int i = 0; i < nums.Length - 1; i++)
+            {
+                newArr[i] = nums[i + 1];
+            }
+
+            newArr[2] = firstItem;
+
+            return newArr;
         }
 
     }
