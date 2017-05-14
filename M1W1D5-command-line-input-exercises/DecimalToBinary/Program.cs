@@ -25,6 +25,59 @@ namespace DecimalToBinary
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Please enter in a series of decimal values (separated by spaces):");
+            char splitChar = ' ';
+            string decimalNumbers = Console.ReadLine();
+            string binary = "";
+            int powerOfTwo = 1;
+            string[] stringArr = decimalNumbers.Split(splitChar);
+            int[] decimalArr = new int[stringArr.Length];
+            string[] binaries = new string[decimalArr.Length];
+            
+
+
+
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                decimalArr[i] = int.Parse(stringArr[i]);
+                
+            }
+
+            for (int i = 0; i < decimalArr.Length; i++)
+            {
+                for (powerOfTwo = 1; powerOfTwo <= decimalArr[i];)
+                {
+                    powerOfTwo *= 2;
+
+
+                }
+
+                powerOfTwo /= 2;
+
+                for (int j = powerOfTwo; j >= 1; j /= 2)
+                {
+                    if ((decimalArr[i] - j) >= 0)
+                    {
+                        binary += "1";
+                        decimalArr[i] -= j;
+
+                    }
+                    else
+                    {
+                        binary += "0";
+                    }
+
+                }
+                binaries[i] = binary;
+                binary = "";
+
+            }
+
+            for(int i = 0; i < binaries.Length; i++)
+            {
+                Console.WriteLine($"{ stringArr[i] } in binary is { binaries[i] }");
+            }
         }
     }
 }

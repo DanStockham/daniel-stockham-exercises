@@ -26,7 +26,23 @@ namespace LinearConvert
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Please enter the length");
+            string length = Console.ReadLine();
+            int parsedLength = int.Parse(length);
+            Console.WriteLine("Is the measurement in (m)eter, or (f)eet?");
+            string unit = Console.ReadLine();
 
+            if(unit == "f")
+            {
+
+                double meters = parsedLength * 0.3048;
+                Console.WriteLine($"{parsedLength}f is {(int)meters}m");
+            }
+            else
+            {
+                double feet = parsedLength * 3.2808399;
+                Console.WriteLine($"{parsedLength}m is {(int)feet}f");
+            }
         }
     }
 }
