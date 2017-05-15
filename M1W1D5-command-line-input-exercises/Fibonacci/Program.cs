@@ -34,6 +34,12 @@ namespace Fibonacci
                 sum = firstValue + secondValue;
                 firstValue = secondValue;
                 secondValue = sum;
+                if (i == 1)
+                {
+                    Console.WriteLine(0);
+                    Console.WriteLine(1);
+                }
+
                 if (sum < inputValue)
                 {
                     Console.WriteLine(sum);
