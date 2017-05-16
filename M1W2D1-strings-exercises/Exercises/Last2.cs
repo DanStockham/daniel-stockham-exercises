@@ -18,20 +18,28 @@ namespace Exercises
         public int Last2(string str)
         {
             int count = 0;
-            string firstChars = str.Substring(0, 2);
-            string lastChars = str.Substring(str.Length - 2, 2);
+            
 
-            for(int i = 2; i < str.Length - 1; i++)
+            if (str.Length >= 2)
             {
-                if(str[i] == firstChars[0] && str[i + 1] == firstChars[1])
+                string lastChars = str.Substring(str.Length - 2, 2);
+
+                for (int i = 0; i < str.Length - 2; i++)
                 {
-                    count++;
+                    if (str[i] == lastChars[0] && str[i + 1] == lastChars[1])
+                    {
+                        count++;
+
+                    }
+
 
                 }
-                
-                
+                return count;
+            } else
+            {
+                return 0;
             }
-            return count;
+            
         }
     }
 }
