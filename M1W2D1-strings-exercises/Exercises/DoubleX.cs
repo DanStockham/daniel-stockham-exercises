@@ -16,7 +16,19 @@ namespace Exercises
          */
         public bool DoubleX(string str)
         {
-            return false;
+            if(str.Length > 1 && str.Substring(0, 2) == "xx")
+            {
+                return true;
+            }
+            else if(str.Length > 1 && str.Substring(1, 2) == "xx")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }

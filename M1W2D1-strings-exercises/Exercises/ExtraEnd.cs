@@ -17,7 +17,13 @@ namespace Exercises
          */
         public string ExtraEnd(string str)
         {
-            return null;
+            string copies = "";
+            for(int i = 0; i < 3; i++)
+            {
+                copies += str.Substring(str.Length - 2, 2);
+            }
+
+            return copies;
         }
     }
 }

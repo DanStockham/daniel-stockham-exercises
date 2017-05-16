@@ -17,7 +17,10 @@ namespace Exercises
          */
         public string NTwice(string str, int n)
         {
-            return null;
+            string firstChars = str.Substring(0, n);
+            string lastChars = str.Substring(str.Length - n, n);
+
+            return firstChars + lastChars;
         }
     }
 }
