@@ -20,7 +20,41 @@ namespace Exercises
          */
         public List<int> BoardingGate(List<int> seatNumberList)
         {
-            return null;
+
+            List<int> newList = new List<int>();
+            List<int> sortedList = new List<int>();
+
+            sortedList.AddRange(seatNumberList);
+
+
+            List<int> firstGroup = new List<int>();
+            List<int> secondGroup = new List<int>();
+            List<int> thirdGroup = new List<int>();
+
+
+            foreach (int seat in sortedList)
+            {
+
+                if (seat >= 1 && seat <= 10)
+                {
+                    firstGroup.Add(seat);
+                }
+                else if (seat >= 11 && seat <= 20)
+                {
+                    secondGroup.Add(seat);
+                }
+                else if (seat >= 21 && seat <= 30)
+                {
+                    thirdGroup.Add(seat);
+                }
+            }
+
+            newList.AddRange(firstGroup);
+            newList.AddRange(secondGroup);
+            newList.AddRange(thirdGroup);
+
+            return newList;
+
         }
     }
 }
