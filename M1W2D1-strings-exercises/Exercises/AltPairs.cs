@@ -17,7 +17,7 @@ namespace Exercises
         public string AltPairs(string str)
         {
             string result = "";
-<<<<<<< HEAD
+
             for(int i = 0; i < str.Length; i++)
             {
                 if(i % 4 == 0 || i % 4 == 1)
@@ -30,24 +30,8 @@ namespace Exercises
 
             return result;
             
-=======
 
-            //for (int i = 0; i < str.Length-1; i += 4)
-            //{
-            //    result = result + str.Substring(i, 2);
-            //}
-
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (i % 4 == 0 || i % 4 == 1)
-                {
-                    result = result + str.Substring(i, 1);
-                }
-            }
-
-
-            return result;
->>>>>>> ae5cba06a9256c80e68ec5a5837440ec16f2f69e
+            
         }
     }
 }

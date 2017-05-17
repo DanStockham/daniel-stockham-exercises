@@ -17,17 +17,9 @@ namespace Exercises
          */
         public string StringYak(string str)
         {
-            string replaceYak = str.Replace("yak", "d");
-            string newStr = "";
+            string replaceYak = str.Replace("yak", "");
 
-            for(int i = 0; i < replaceYak.Length; i++)
-            {
-                if(replaceYak[i] != 'd')
-                {
-                    newStr += replaceYak[i];
-                }
-            }
-            return newStr;
+            return replaceYak;
         }
     }
 }
