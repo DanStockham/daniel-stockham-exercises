@@ -8,6 +8,88 @@ namespace Individual.Exercises.Classes
 {
     public class Employee
     {
+        private int employeeId;
+        private string firstName;
+        private string lastName;
+        private string fullName;
+        private string department;
+        private double annualSalary;
+
+        public Employee(int employeeId, string firstName, string lastName, double salary)
+        {
+            this.employeeId = employeeId;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            fullName = lastName + ", " + firstName;
+            annualSalary = salary;
+            department = "";
+        }
+
+        //Properties
+
+        public int EmployeeId
+        {
+            get
+            {
+                return employeeId;
+            }
+        }
+
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                lastName = value;
+            }
+        }
+
+        public string FullName
+        {
+            get
+            {
+                return fullName;
+            }
+        }
+
+        public string Department
+        {
+            get
+            {
+                return department;
+            }
+            set
+            {
+                department = value;
+            }
+        }
+
+        public double AnnualSalary
+        {
+            get
+            {
+                return annualSalary;
+            }
+        }
         
+        //Methods
+
+        public void RaiseSalary(double percent)
+        {
+            double formattedPercent = percent / 100;
+
+            annualSalary += (annualSalary * formattedPercent);
+        }
     }
 }
