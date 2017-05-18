@@ -22,7 +22,25 @@ namespace Exercises
          */
         public Dictionary<string, int> WordCount(string[] words)
         {
-            return null;
+            HashSet<string> wordCountParse = new HashSet<string>();
+            Dictionary<string, int> wordCount = new Dictionary<string, int>();
+
+            foreach(string item in words)
+            {
+                wordCountParse.Add(item);
+            }
+
+            foreach(string word in wordCountParse)
+            {
+                wordCount.Add(word, 0);
+            }
+
+            foreach(string item in words)
+            {
+                wordCount[item] += 1;
+            }
+
+            return wordCount;
         }
     }
 }

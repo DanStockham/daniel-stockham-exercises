@@ -25,7 +25,37 @@ namespace Exercises
          */
         public Dictionary<string, int> Last2Revisted(string[] words)
         {
-            return null;
+
+            Dictionary<string, int> strCount = new Dictionary<string, int>();
+
+            foreach (string item in words)
+            {
+                strCount[item] = 0;
+            }
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                string stringItem = words[i];
+
+                if (words[i].Length >= 2)
+                {
+                    for (int j = 0; j < words[i].Length - 2; j++)
+                    {
+                        string lastChars = words[i].Substring(words[i].Length - 2, 2);
+                        if (stringItem[j] == lastChars[0] && stringItem[j + 1] == lastChars[1])
+                        {
+                            strCount[stringItem] += 1;
+                        }
+                    }
+                }
+                else
+                {
+                    strCount[stringItem] = 0;
+                }
+            }
+
+            return strCount;
+            
         }
     }
 }

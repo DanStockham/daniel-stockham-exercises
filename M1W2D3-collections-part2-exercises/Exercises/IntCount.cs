@@ -21,7 +21,24 @@ namespace Exercises
          */
         public Dictionary<int, int> IntCount(int[] ints)
         {
-            return null;
+            HashSet<int> intHash = new HashSet<int>();
+            Dictionary<int, int> numCount = new Dictionary<int, int>();
+
+            foreach (int item in ints)
+            {
+                intHash.Add(item);
+            }
+
+            foreach (int item in intHash)
+            {
+                numCount[item] = 0;
+            }
+            foreach (int item in ints)
+            {
+                numCount[item] += 1;
+            }
+
+            return numCount;
         }
     }
 }

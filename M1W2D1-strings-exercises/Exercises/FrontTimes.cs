@@ -17,6 +17,7 @@ namespace Exercises
          */
         public string FrontTimes(string str, int n)
         {
+<<<<<<< HEAD
             string firstThree = "";
             string result = "";
             if(str.Length < 3)
@@ -32,6 +33,31 @@ namespace Exercises
                 result += firstThree;
             }
             return result;
+=======
+            int count = 0;
+            string newStr = "";
+
+            if (str.Length < 3)
+            {
+                while (count < n) //changed from <= to <
+                {
+                    newStr += str;
+                    count++;
+                }
+            }
+            
+            else  //changed from "if (str.Length >= 3)" to "else"
+            {
+                string front = str.Substring(0, 3); //moved inside of "else"
+
+                while (count < n) //changed from <= to <
+                {
+                    newStr += front;
+                    count++;
+                }
+            }
+            return newStr;
+>>>>>>> 582a1be10eb5a7f88ba96279d707846532b464e1
         }
 
     }
