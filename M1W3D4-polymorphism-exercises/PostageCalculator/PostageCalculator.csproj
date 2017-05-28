@@ -43,15 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FexEd.cs" />
+    <Compile Include="Classes\PostalService\PostalService1st.cs" />
+    <Compile Include="Classes\PostalService\PostalService2nd.cs" />
+    <Compile Include="Classes\PostalService\PostalService3rd.cs" />
+    <Compile Include="Classes\SPU.cs" />
+    <Compile Include="Interfaces\IDeliveryDriver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

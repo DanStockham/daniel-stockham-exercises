@@ -52,8 +52,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TollBothTests.cs" />
+    <Compile Include="PostageCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PostageCalculator\PostageCalculator.csproj">
+      <Project>{c17bc364-b301-49a4-aa44-71d7f8aa7c49}</Project>
+      <Name>PostageCalculator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TollBoothCalculator\TollBoothCalculator.csproj">
       <Project>{a63df11e-ef6c-4344-b2a9-8dfd09502903}</Project>
       <Name>TollBoothCalculator</Name>
