@@ -29,25 +29,32 @@ namespace QuizMaker
                     choices.AddRange(line[1].Split('|'));
 
                     Console.WriteLine(question);
-                    foreach (string item in choices)
+                    for(int i = 1; i < choices.Count(); i++)
                     {
-                        if (item.Contains('*'))
+                        if (choices[i].Contains('*'))
                         {
-                            item.Replace("*", string.Empty);
-                            answer = choices.IndexOf(item);
+                            choices[i] = choices[i].Replace("*", string.Empty);
+                            answer = i;
                         }
-                        Console.WriteLine(item);
+                        Console.WriteLine($"{i}. {choices[i]}");
                     }
                     string userInput = Console.ReadLine();
 
+                    Console.WriteLine();
+                    Console.WriteLine($"Your answer: {userInput}");
+
                     if(int.Parse(userInput) == answer)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("RIGHT!!");
+                        Console.WriteLine();
                         marks++;
                     }
                     else
                     {
+                        Console.WriteLine();
                         Console.WriteLine("Sorry, that was not the right answer");
+                        Console.WriteLine();
                     }
                 }
                 Console.WriteLine($"You got {marks} answer(s) correct out of the total {totalQuestions} questions asked ");
