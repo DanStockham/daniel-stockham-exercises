@@ -1,0 +1,22 @@
+﻿html {
+    font: 24px Courier;
+    color: white;
+}
+
+body {
+    margin-top: 50px;
+}
+
+.box {
+    display: inline;
+    padding: 50px;
+    width: 70px;
+}
+
+.odd {
+    background-color: #ee3e64;
+}
+
+.even {
+    background-color: #44accf;
+}
