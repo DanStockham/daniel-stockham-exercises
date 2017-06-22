@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+@{ 
+    int a = 0;
+    int b = 1;
+    int c = 1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FizzBuzz</title>
+    <link href="../main.css" rel="stylesheet" />
+</head>
+<body>
+  <div>
+      <ul>
+          @for (int i = 1; i <= 25; i++)
+          {
+              c = a + b;
+              a = b;
+              b = @c;
+              <li>@c</li>
+          }
+          
+      </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.fizz {
+    color: blue;
+}
+
+.buzz {
+    color: red;
+}
+
+.fizzbuzz {
+    font-size: 1.3em;
+    color: purple
+}
