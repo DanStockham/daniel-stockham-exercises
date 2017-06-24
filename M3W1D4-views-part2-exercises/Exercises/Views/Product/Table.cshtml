@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@model List<Exercises.Models.Product>
+
+<h1>Toy Department</h1>
+
+<table class="product-table">
+    <tr>
+        <td class="row-label"></td>
+        @foreach (Exercises.Models.Product item in Model)
+        {
+
+            <td>
+                <a href="@Url.Action("Detail", "Recipe", new { id = item.ProductId }, null)">
+                    <img class="table-image" src="~/Content/images/@(item.ImageName)" alt="image of @item.Name" />
+                </a>
+                
+                    @if (item.IsTopSeller)
+                    {
+                        <div class="table-bestseller">
+                            BEST SELLER!
+                        </div>
+                    }
+                        
+            </td>
+
+        }
+    </tr>
+    <tr>
+        <td class="row-label">Name</td>
+        @foreach (Exercises.Models.Product item in Model)
+            {
+            <td>
+                <a href="@Url.Action("Detail", "Recipe", new { id = item.ProductId }, null)">@item.Name</a>
+            </td>
+        }
+    </tr>
+    <tr>
+        <td class="row-label">Rating</td>
+        @foreach (Exercises.Models.Product item in Model)
+            {
+                int rating = (int)item.AverageRating;
+
+                <td><img class="table-rating-image" src="~/Content/images/@(rating)-star.png" alt="@rating star rating" /></td>
+            }
+    </tr>
+    <tr>
+        <td class="row-label">Mfc</td>
+        @foreach (Exercises.Models.Product item in Model)
+            {
+            <td>@(item.Manufacturer)</td>
+        }
+    </tr>
+
+    <tr>
+        <td class="row-label">Price</td>
+        @foreach (Exercises.Models.Product item in Model)
+            {
+            <td class="table-price">$@(item.Price)</td>
+        }
+    </tr>
+
+    <tr>
+        <td class="row-label">wt. (in lbs)</td>
+        @foreach (Exercises.Models.Product item in Model)
+            {
+                <td>@item.WeightIbLbs</td>
+            }
+    </tr>
+
+</table>

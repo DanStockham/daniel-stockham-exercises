@@ -60,6 +60,22 @@ section {
     padding: 20px;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 50px;
+}
+
+tr:nth-child(even) {
+    background: lightgrey;
+}
+
+td {
+    font-weight: 100;
+    padding: 0 20px;
+    
+}
+
+
 h1,
 h2,
 h3,
@@ -72,6 +88,8 @@ p {
 }
 
 /* Individual Page Styles */
+
+/* List View */
 
 .product-list {
     display: flex;
@@ -115,11 +133,48 @@ p {
     font-weight: bold;
 }
 
-.product-details h2 {
-    /*padding-top: 20px;*/
-}
-
 .product-details__rating {
     width: 75px;
     height: 15px;
+}
+
+/* Table View */
+
+.product-table {
+    background: white;
+    font-weight: bold;
+    width: 100px;
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.table-image {
+    width: 100px;
+    height: 75px;
+    padding-bottom: 15px;
+}
+
+.table-rating-image {
+    width: 75px;
+}
+
+.table-bestseller {
+    color: red;
+    font-size: 1em;
+    padding: 5px;
+}
+
+.table-price {
+    color: red;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.row-label {
+    background: white;
+    font-weight: bold;
+    width: 100px;
+    text-align: left;
+    padding-left:0;
+    padding-right: 50px;
 }
