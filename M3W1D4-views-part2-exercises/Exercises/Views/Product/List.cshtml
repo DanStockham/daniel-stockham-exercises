@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@model List<Exercises.Models.Product>
+<h1>Toy Department</h1>
+<ul class="product-list">
+    @foreach (Exercises.Models.Product item in Model)
+    {
+        int rating = (int)@item.AverageRating;
+        string isBestSeller = "";
+
+        
+
+        <li class="product-list__item">
+            @if(item.IsTopSeller)
+            {
+                isBestSeller = "BEST SELLER!";
+            }
+            <img class="product-list__image" src="~/Content/images/@(item.ImageName)" alt="image of @item.Name" />
+            <div class="product-details">
+                <h2>@item.Name<span class="product-details--best-seller">@isBestSeller</span></h2>
+                
+                <p>by @item.Manufacturer</p>
+                
+                    @if (item.RemainingStock < 3)
+                    {
+                        <span class="product-details--stock">
+                            Only @item.RemainingStock left!
+                        </span>
+                    }
+                        
+                <div class="product-details__price">$@item.Price</div>
+                <p>Weight: <span class="product-details__weight">@item.WeightIbLbs</span>Ibs</p>
+                <img class ="product-details__rating" src="/Content/images/@(rating)-star.png" alt="@rating star rating" />
+            </div>
+        </li>
+   }
+    
+</ul>
+
