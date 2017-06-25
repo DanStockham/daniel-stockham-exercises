@@ -123,6 +123,8 @@
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\Table.cshtml" />
+    <Content Include="Views\Product\Tile.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

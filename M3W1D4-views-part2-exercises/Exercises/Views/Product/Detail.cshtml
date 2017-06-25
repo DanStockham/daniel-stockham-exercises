@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@model Exercises.Models.Product
+
+@{ 
+    int rating = (int)Model.AverageRating;
+    string isBestSeller = "";
+}
+
+@if(Model.IsTopSeller)
+{
+    isBestSeller = "";
+}
+<div class="detail-container">
+    <div class="detail-summary"> 
+        <img class="detail-summary__img" src="~/Content/images/@(Model.ImageName)" alt="image of @Model.Name" />
+        <div class="detail-info">
+            <h2 class="detail-info__name">@Model.Name
+                @if (Model.IsTopSeller)
+                {
+                    <span class="detail-info__bestseller">
+                        BEST SELLER!
+                    </span>
+                }
+            </h2>
+            <div class="detail-info__manufactuer">by @Model.Manufacturer</div> 
+            <img class="detail-info__rating" src="~/Content/images/@(rating)-star.png" alt="@rating star rating" />
+            <div class="detail-info__price">Price: $@Model.Price</div>
+            <div class="detail-info__weight"><span>Weight: </span>@(Model.WeightIbLbs) lbs</div>
+            <div class="detail-info__description"><span>Descripton: </span>@Model.Description</div>
+        </div>
+    </div>
+</div>
+

@@ -13,7 +13,7 @@
         {
 
             <td>
-                <a href="@Url.Action("Detail", "Recipe", new { id = item.ProductId }, null)">
+                <a href="@Url.Action("Detail", "Product", new { id = item.ProductId }, null)">
                     <img class="table-image" src="~/Content/images/@(item.ImageName)" alt="image of @item.Name" />
                 </a>
                 
@@ -33,7 +33,7 @@
         @foreach (Exercises.Models.Product item in Model)
             {
             <td>
-                <a href="@Url.Action("Detail", "Recipe", new { id = item.ProductId }, null)">@item.Name</a>
+                <a href="@Url.Action("Detail", "Product", new { id = item.ProductId }, null)">@item.Name</a>
             </td>
         }
     </tr>

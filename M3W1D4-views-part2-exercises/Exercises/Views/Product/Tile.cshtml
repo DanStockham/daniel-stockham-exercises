@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@model List<Exercises.Models.Product>
+
+<h1>Toy Department</h1>
+<div class="tile-container">
+    @foreach(Exercises.Models.Product item in Model)
+    {
+        string isBestSeller = "";
+        int rating = (int)@item.AverageRating;
+        <div class="product-tile">
+            @if(item.IsTopSeller)
+            {
+                isBestSeller = " BEST SELLER!";
+            }
+            <a href="@Url.Action("Detail", "Product", new { id = item.ProductId }, null)"><img class="product-tile__img" src="~/Content/images/@item.ImageName" alt="image of @item.Name" /></a>
+            <div class="product-details center">
+                <h2>@item.Name<span class="product-tile__bestseller">@isBestSeller</span></h2>
+                <div class="product-tile__manufacturer">by @(item.Manufacturer)</div>
+                <div class="product-tile__price">$@item.Price</div>
+                <div class="product-tile__weight">Weight: <span>@item.WeightIbLbs lbs</span></div>
+                <img class="product-tile__rating" src="~/Content/images/@(rating)-star.png" alt="@rating star rating" />
+            </div>
+        </div>
+    }
+</div>
