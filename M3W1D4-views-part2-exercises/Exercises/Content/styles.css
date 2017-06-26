@@ -28,6 +28,9 @@ nav {
         float: left;
     }
 
+        nav ul a {
+        }
+
     nav li {
         list-style-type: none;
         color: white;
