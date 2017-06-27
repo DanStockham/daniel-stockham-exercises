@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Exercises.Web.Models.ColorizedModel
+
+<h1>Ordered Name</h1>
+
+<div>First Name: <span>@Model.FirstName</span></div>
+<div>Last Name: <span>@Model.LastName</span></div>
+<br />
+<div>
+    @if (Model.Red)
+    {
+        <span style="color: red;">@Model.FirstName @Model.LastName</span>
+    }
+</div>
+
+<div>
+    @if (Model.Blue)
+    {
+        <span style="color: blue;">@Model.FirstName @Model.LastName</span>
+    }
+</div>
+
+<div>
+    @if (Model.Green)
+    {
+        <span style="color: green;">@Model.FirstName @Model.LastName</span>
+    }
+</div>

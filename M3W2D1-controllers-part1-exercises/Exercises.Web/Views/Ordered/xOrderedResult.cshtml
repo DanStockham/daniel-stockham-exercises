@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Exercises.Web.Models.FullNameOrderModel
+<h1>Ordered Name</h1>
+
+<div>First Name: <span>@Model.FirstName</span></div>
+<div>Middle Inital: <span>@Model.MiddleInitial</span></div>
+<div>Last Name: <span>@Model.LastName</span></div>
+<br />
+<div>@Model.OrderName()</div>
+
+
+

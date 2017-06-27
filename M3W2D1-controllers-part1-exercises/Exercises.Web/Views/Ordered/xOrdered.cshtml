@@ -1,0 +1,41 @@
+﻿@model Exercises.Web.Models.FullNameOrderModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h1>Enter your Name</h1>
+
+@using (Html.BeginForm("xOrderedResult", "Ordered", FormMethod.Get))
+{
+    <div class="formInputGroup">
+        @Html.Label("FirstName", "First Name:")
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("MiddleInital", "Middle Inital:")
+        @Html.TextBoxFor(m => m.MiddleInitial, new { @maxLength = "1" })
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("LastName", "Last Name:")
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+
+    <h1>Choose Order</h1>
+
+    <ul class="formInputGroup-radio">
+        <li>@Html.RadioButtonFor(m => m.Order, 1) First MI Last</li>
+        <li>@Html.RadioButtonFor(m => m.Order, 2) First Last</li>
+        <li>@Html.RadioButtonFor(m => m.Order, 3) Last, First MI</li>
+        <li>@Html.RadioButtonFor(m => m.Order, 4) Last, First</li>
+    </ul>
+
+    <button class="formSubmitButton">Submit</button>
+
+
+}

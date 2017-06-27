@@ -1,0 +1,33 @@
+﻿@model Exercises.Web.Models.ColorizedModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Enter your Name</h1>
+
+@using (Html.BeginForm("ColorizedResult", "Colorized", FormMethod.Get))
+{
+    <div class="formInputGroup">
+        @Html.Label("FirstName", "First Name:")
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("LastName", "Last Name:")
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+
+    <h1>Choose Order</h1>
+
+    <ul class="formInputGroup-radio">
+        <li>@Html.CheckBoxFor(m => m.Red) Red</li>
+        <li>@Html.CheckBoxFor(m => m.Blue) Blue</li>
+        <li>@Html.CheckBoxFor(m => m.Green) Green</li>
+    </ul>
+
+    <button class="formSubmitButton">Submit</button>
+
+
+}
+
