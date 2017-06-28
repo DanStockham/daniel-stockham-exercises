@@ -89,6 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\happy-squirrel.png" />
+    <Content Include="Content\sad-squirrel.png" />
+    <Content Include="Content\smoking-squirrel.png" />
     <Content Include="Global.asax" />
     <Content Include="stylesheet.css" />
     <Content Include="Web.config" />
@@ -96,6 +99,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BabyLottoController.cs" />
+    <Compile Include="Controllers\CigarPartyController.cs" />
     <Compile Include="Controllers\ColorizedController.cs" />
     <Compile Include="Controllers\FizzBuzzController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -105,6 +109,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BabyLottoModel.cs" />
+    <Compile Include="Models\CigarPartyModel.cs" />
     <Compile Include="Models\ColorizedModel.cs" />
     <Compile Include="Models\FizzBuzzModel.cs" />
     <Compile Include="Models\FullNameOrderModel.cs" />
@@ -126,6 +131,8 @@
     <Content Include="Views\LastTwo\LastTwoResult.cshtml" />
     <Content Include="Views\BabyLotto\BabyLotto.cshtml" />
     <Content Include="Views\BabyLotto\BabyLottoResults.cshtml" />
+    <Content Include="Views\CigarParty\CigarParty.cshtml" />
+    <Content Include="Views\CigarParty\CigarPartyResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

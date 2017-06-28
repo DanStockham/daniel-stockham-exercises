@@ -170,7 +170,7 @@ section.result {
 .formInputGroup label,
 .formValidationGroup label {
     display: inline-block;
-    width: 5em;
+    width: 8em;
     text-align: left;
 }
 
@@ -190,4 +190,8 @@ section.result {
 
 .no-list-style {
     list-style: none;
+}
+
+.align-left {
+    margin: 20px;
 }

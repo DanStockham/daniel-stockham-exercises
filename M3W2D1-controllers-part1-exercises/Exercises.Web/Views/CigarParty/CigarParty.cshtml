@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Exercises.Web.Models.CigarPartyModel
+
+<h1>Squirrel Cigar Party</h1>
+
+<img src="~/Content/smoking-squirrel.png" alt="A squirrel unaware of lung cancer" />
+
+@using (Html.BeginForm("CigarPartyResult", "CigarParty", FormMethod.Get))
+{
+    <div class="formInputGroup">
+        @Html.Label("NumOfSquirrels", "Number of Squirrels")
+        <br />
+        @Html.TextBoxFor(m => m.NumOfSquirrels)
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("IsWeekend", "Is this the weekend?")
+        @Html.CheckBoxFor(m => m.IsWeekend, false)
+    </div>
+
+    <button class="formSubmitButton align-left">Submit</button>
+}

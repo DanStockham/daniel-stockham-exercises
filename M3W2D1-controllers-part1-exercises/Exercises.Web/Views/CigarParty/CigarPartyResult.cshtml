@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Exercises.Web.Models.CigarPartyModel
+
+@if(Model.IsSuccess())
+{
+
+    <h1>Great Party!!!</h1>
+    <img src="~/Content/happy-squirrel.png" alt="Happy Squirrel!" />
+
+}
+else
+{
+    <h1>Ugh!!!</h1>
+    <img src="~/Content/sad-squirrel.png" alt="One depressed squirrel" />
+}
