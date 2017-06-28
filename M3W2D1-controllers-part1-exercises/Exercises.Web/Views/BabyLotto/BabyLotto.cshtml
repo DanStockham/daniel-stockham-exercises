@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Exercises.Web.Models.BabyLottoModel
+
+
+<h1>Reverse Last Two Words</h1>
+<h3>Enter three comma delimited numbers for each ticket</h3>
+@using (Html.BeginForm("BabyLottoResult", "BabyLotto", FormMethod.Get))
+{
+    <ul class="formInputGroup no-list-style">
+        @for (int i = 0; i < 5; i++)
+        {
+            <li>
+                @Html.Label("Ticket@i", "Ticket " + i + ":")
+                @Html.TextBoxFor(m => m.LottoNum[i])
+            </li>
+        }
+
+    </ul>
+
+    <button class="formSubmitButton">Submit</button>
+
+
+}
+
+

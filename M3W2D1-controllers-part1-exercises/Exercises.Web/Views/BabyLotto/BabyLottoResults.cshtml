@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Exercises.Web.Models.BabyLottoModel
+
+<h1>Baby Lotto</h1>
+<ul class="formInputGroup no-list-style">
+    @for (int i = 0; i < Model.LottoNum.Count; i++)
+    {
+
+        string[] LottoNum = Model.LottoNum[i].Split(',');
+        Dictionary<string, int> count = new Dictionary<string, int>();
+
+        foreach(string val in LottoNum)
+        {
+            if(count.ContainsKey(val))
+            {
+                count[val]++;
+            }
+            else
+            {
+                count.Add(val, 1);
+            }
+        }
+
+        int highestMatches = 0;
+
+        foreach(KeyValuePair<string, int> kvp in count)
+        {
+            if(kvp.Value > highestMatches)
+            {
+                highestMatches = kvp.Value;
+            }
+        }
+
+        if(highestMatches == 3)
+        {
+            <li style="color:green;">@Model.LottoNum[i]</li>
+        }
+        else if(highestMatches == 2)
+        {
+            <li style="color: silver;">@Model.LottoNum[i]</li>
+        }
+        else
+        {
+            <li>@Model.LottoNum[i]</li>
+        }
+
+
+    }
+
+</ul>
