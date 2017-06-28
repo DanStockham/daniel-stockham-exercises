@@ -2,4 +2,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model Exercises.Web.Models.FizzBuzzModel
+
+
+<h1>FizzBuzz Revisited</h1>
+
+@using (Html.BeginForm("FizzBuzzResult", "FizzBuzz", FormMethod.Get))
+{
+    <div class="formInputGroup">
+        @Html.Label("DivisableBy1", "Divisable By: ")
+        @Html.TextBoxFor(m => m.FirstDiv)
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("DivisableBy2", "Divisable By: ")
+        @Html.TextBoxFor(m => m.SecondDiv)
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("Fizz", "Alternative Fizz: ")
+        @Html.TextBoxFor(m => m.Fizz)
+    </div>
+
+    <div class="formInputGroup">
+        @Html.Label("Buzz", "Alternative Buzz: ")
+        @Html.TextBoxFor(m => m.Buzz)
+    </div>
+
+    <ul class="formInputGroup-radio">
+        @for (int i = 0; i < 5; i++)
+        {
+            <li>
+                @Html.Label("Num" + i, "Number " + i)
+                @Html.TextBoxFor(m => m.Num[i])
+            </li>
+        }
+        
+    </ul>
+
+    <button class="formSubmitButton">Submit</button>
+
+
+}
+
 

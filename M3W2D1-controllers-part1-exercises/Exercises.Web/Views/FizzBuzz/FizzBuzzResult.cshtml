@@ -2,4 +2,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model Exercises.Web.Models.FizzBuzzModel
+<div class="pad-left">
+
+    <div>Divisable by: @Model.FirstDiv</div>
+    <div>Divisable by: @Model.SecondDiv</div>
+    <div>Divisable by Both: @Model.FirstDiv and @Model.SecondDiv</div>
+    <br />
+    <div>Alternative Fizz: @Model.Fizz</div>
+    <div>Alternative Buzz: @Model.Buzz</div>
+    <br />
+
+    @for (int i = 0; i < 5; i++)
+    {
+        if (Model.Num[i] % Model.FirstDiv == 0 && Model.Num[i] % Model.SecondDiv == 0)
+        {
+            <div>@Model.Num[i] @Model.Fizz@Model.Buzz</div>
+        }
+        else if (Model.Num[i] % Model.SecondDiv == 0)
+        {
+            <div>@Model.Num[i] @Model.Buzz</div>
+        }
+        else if (Model.Num[i] % Model.FirstDiv == 0)
+        {
+            <div>@Model.Num[i] @Model.Fizz</div>
+        }
+        else
+        {
+            <div>@Model.Num[i]</div>
+        }
+
+    }
+</div>
+
+
 

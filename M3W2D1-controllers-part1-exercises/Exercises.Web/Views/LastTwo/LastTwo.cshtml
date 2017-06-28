@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Exercises.Web.Models.LastTwoModel
+
+
+<h1>Reverse Last Two Words</h1>
+@using (Html.BeginForm("LastTwoResult", "LastTwo", FormMethod.Get))
+{
+    <ul class="formInputGroup no-list-style">
+        @for (int i = 0; i < 10; i++)
+        {
+            <li>
+                @Html.Label("Word" + i , "Word " + i + ":", new { @class = "no-right-padding"})
+                @Html.TextBoxFor(m => m.Words[i])
+            </li>
+        }
+
+    </ul>
+
+    <button class="formSubmitButton">Submit</button>
+
+
+}
+
+
+

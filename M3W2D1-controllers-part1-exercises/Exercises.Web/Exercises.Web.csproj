@@ -98,6 +98,7 @@
     <Compile Include="Controllers\ColorizedController.cs" />
     <Compile Include="Controllers\FizzBuzzController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LastTwoController.cs" />
     <Compile Include="Controllers\OrderedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -105,6 +106,7 @@
     <Compile Include="Models\ColorizedModel.cs" />
     <Compile Include="Models\FizzBuzzModel.cs" />
     <Compile Include="Models\FullNameOrderModel.cs" />
+    <Compile Include="Models\LastTwoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +120,8 @@
     <Content Include="Views\Colorized\ColorizedResult.cshtml" />
     <Content Include="Views\FizzBuzz\FizzBuzz.cshtml" />
     <Content Include="Views\FizzBuzz\FizzBuzzResult.cshtml" />
+    <Content Include="Views\LastTwo\LastTwo.cshtml" />
+    <Content Include="Views\LastTwo\LastTwoResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

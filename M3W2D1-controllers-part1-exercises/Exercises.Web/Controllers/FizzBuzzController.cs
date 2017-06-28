@@ -17,8 +17,15 @@ namespace Exercises.Web.Controllers
 
         public ActionResult FizzBuzzResult(FizzBuzzModel obj)
         {
+            FizzBuzzModel model = new FizzBuzzModel();
 
-            return View("FizzBuzzResult");
+            model.FirstDiv = obj.FirstDiv;
+            model.SecondDiv = obj.SecondDiv;
+            model.Fizz = obj.Fizz;
+            model.Buzz = obj.Buzz;
+            model.Num = obj.Num;
+
+            return View("FizzBuzzResult", model);
         }
     }
 }

@@ -11,11 +11,8 @@ namespace Exercises.Web.Models
         public int SecondDiv { get; set; }
         public string Fizz { get; set; }
         public string Buzz { get; set; }
-        public int Num1 { get; set; }
-        public int Num2 { get; set; }
-        public int Num3 { get; set; }
-        public int Num4 { get; set; }
-        public int Num5 { get; set; }
+        public List<int> Num { get; set; } = new List<int>();
+       
 
 
     }
