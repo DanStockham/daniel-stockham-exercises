@@ -79,4 +79,8 @@ section form div {
     width: 50%;
 }
 
+ul {
+    list-style: none;
+}
+
 /* Individual Page Styles */

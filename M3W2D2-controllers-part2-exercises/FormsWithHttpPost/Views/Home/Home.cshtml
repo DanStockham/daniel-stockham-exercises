@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using FormsWithHttpPost.Models
+@model List<ReviewModel>
+
+<h2>Past Reviews</h2>
+
+<table class="reviews-list">
+    @foreach (ReviewModel review in Model)
+    {
+        <tr>
+            <td>
+                <h3 class="post-subject">@review.Title</h3>
+                <p class="post-posted-info">by @review.Username on @review.ReviewDate.ToShortDateString().</p>
+                <p class="post-message">@review.Message</p>
+            </td>
+        </tr>
+    }
+</table>
+

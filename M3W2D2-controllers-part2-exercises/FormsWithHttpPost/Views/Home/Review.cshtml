@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using FormsWithHttpPost.Models
+@model FormsWithHttpPost.Models.ReviewModel
+
+<ul>
+   @using(Html.BeginForm("Review", "Home", FormMethod.Post))
+   {
+       <li>
+           @Html.Label("Username", "Enter your username")
+           @Html.TextBoxFor(m => m.Username)
+       </li>
+       <li>
+           @Html.Label("Stars", "How many stars?")
+           @Html.TextBoxFor(m => m.Rating)
+       </li>
+       <li >
+           @Html.Label("Title", "Provide a Title")
+           @Html.TextBoxFor(m => m.Title)
+       </li>
+        <li>
+            @Html.Label("Review", "Review")
+            @Html.TextBoxFor(m => m.Message)
+        </li>
+        <li>
+            <button>Submit</button>
+        </li>
+   }
+<ul/>
+
