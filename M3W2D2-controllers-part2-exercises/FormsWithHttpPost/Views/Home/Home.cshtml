@@ -11,7 +11,13 @@
     {
         <tr>
             <td>
-                <h3 class="post-subject">@review.Title</h3>
+                <div class="title-rating">
+                    <h3 class="post-subject">@review.Title</h3>
+                    @for (int i = 0; i < review.Rating; i++)
+                    {
+                        <span class="rating-star"><img src="~/Content/star.png" /></span>
+                    }
+                </div>
                 <p class="post-posted-info">by @review.Username on @review.ReviewDate.ToShortDateString().</p>
                 <p class="post-message">@review.Message</p>
             </td>

@@ -83,4 +83,8 @@ ul {
     list-style: none;
 }
 
+.rating-star {
+   display: inline;
+   height: 50px;
+}
 /* Individual Page Styles */

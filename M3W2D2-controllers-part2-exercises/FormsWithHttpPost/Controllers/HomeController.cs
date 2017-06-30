@@ -27,21 +27,17 @@ namespace FormsWithHttpPost.Controllers
             return View("Home", allReviews);
         }    
 
-        public ActionResult Home()
-        {
-            List<ReviewModel> allReviews = reviewsDAL.GetAllReviews();
-            return View("Home");
-        }
-
         public ActionResult Review()
         {
             return View("Review");
         }
+
+        [HttpPost]
         public ActionResult Review(ReviewModel obj)
         {
             reviewsDAL.SaveReview(obj);
 
-            return RedirectToAction("Review", "Home");
+            return RedirectToAction("Index", "Home", null);
         }
     }
 }

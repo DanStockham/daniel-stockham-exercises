@@ -13,7 +13,7 @@ namespace FormsWithHttpPost.Tests.DAL
     public class ReviewDALTests
     {
         private TransactionScope tran;
-        private string connectionString = WebConfigurationManager.ConnectionStrings["squirrels"].ToString();
+        private string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog = squirrels; Integrated Security = True";
         private int reviewCount = 0;
 
 
@@ -24,11 +24,9 @@ namespace FormsWithHttpPost.Tests.DAL
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand cmd;
                 connection.Open();
-
-                cmd = new SqlCommand("SELECT COUNT(*) FROM reviews;", connection);
-                reviewCount = (int) cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM reviews;", connection);
+                reviewCount = (int) cmd.ExecuteScalar();
             }
 
         }
@@ -57,6 +55,7 @@ namespace FormsWithHttpPost.Tests.DAL
 
             ReviewModel review = new ReviewModel
             {
+                Id = 10,
                 Username = "ET",
                 Rating = 5,
                 Title = "test test test test",

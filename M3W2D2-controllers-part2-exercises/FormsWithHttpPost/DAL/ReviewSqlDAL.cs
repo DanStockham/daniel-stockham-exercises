@@ -29,7 +29,7 @@ namespace FormsWithHttpPost.DAL
                 {
                     conn.Open();
 
-                    ReviewModel review = new ReviewModel();
+                    
 
 
                     SqlCommand cmd = new SqlCommand(SQL_GetAllReviews, conn);
@@ -37,6 +37,8 @@ namespace FormsWithHttpPost.DAL
 
                     while(reader.Read())
                     {
+                        ReviewModel review = new ReviewModel();
+
                         review.Id = Convert.ToInt32(reader["review_id"]);
                         review.Username = Convert.ToString(reader["username"]);
                         review.Rating = Convert.ToInt32(reader["rating"]);
@@ -59,7 +61,7 @@ namespace FormsWithHttpPost.DAL
 
         public bool SaveReview(ReviewModel newReview)
         {
-            const string SQL_InsertReview = @"INSERT INTO reviews VALUES('@username', '@rating', '@title', '@text', '@date')";
+            const string SQL_InsertReview = "INSERT INTO reviews VALUES(@username, @rating, @title, @text, @date)";
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -73,7 +75,7 @@ namespace FormsWithHttpPost.DAL
                     cmd.Parameters.AddWithValue("@text", newReview.Message);
                     cmd.Parameters.AddWithValue("@date", DateTime.UtcNow);
 
-                    newReview.Id = (int)cmd.ExecuteScalar();
+                    //newReview.Id = (int) cmd.ExecuteScalar();
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 
