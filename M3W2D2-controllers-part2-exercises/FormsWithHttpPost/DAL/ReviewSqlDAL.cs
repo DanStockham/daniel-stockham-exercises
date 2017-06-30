@@ -18,6 +18,7 @@ namespace FormsWithHttpPost.DAL
         }
 
         public List<ReviewModel> GetAllReviews()
+
         {
 
             const string SQL_GetAllReviews = "SELECT * FROM reviews";
