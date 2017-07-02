@@ -24,12 +24,12 @@ namespace FormsWithHttpPost.Controllers
         public ActionResult Index()
         {
             List<ReviewModel> allReviews = reviewsDAL.GetAllReviews();
-            return View("Home", allReviews);
+            return View("Index", allReviews);
         }    
 
         public ActionResult Review()
         {
-            return View("Review");
+            return View("Index");
         }
 
         [HttpPost]

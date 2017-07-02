@@ -84,7 +84,16 @@ ul {
 }
 
 .rating-star {
-   display: inline;
+   display: inline-block;
    height: 50px;
 }
+
+.forDummies {
+    height: 200px;
+}
+
+h3 {
+    display: inline-block;
+}
+
 /* Individual Page Styles */
