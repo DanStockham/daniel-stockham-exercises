@@ -42,9 +42,13 @@ namespace Validation.Web.Controllers
                 return View("Login", login);
             }
 
-            return RedirectToAction("Login", "Users");
+            return RedirectToAction("Confirmation", "Users");
         }
         // GET: User/Confirmation
         // Return the confirmation view
+        public ActionResult Confirmation()
+        {
+            return View("Confirmation");
+        }
     }
 }
