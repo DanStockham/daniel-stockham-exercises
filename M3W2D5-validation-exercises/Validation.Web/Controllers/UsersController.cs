@@ -12,7 +12,7 @@ namespace Validation.Web.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View("Index");
+            return View("Login");
         }
 
         // Add the following Controller Actions
@@ -26,11 +26,24 @@ namespace Validation.Web.Controllers
 
         // GET: User/Login
         // Return the empty login view
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
 
         // POST: User/Login  
         // Validate the model and redirect to login (if successful) or return the 
         // login view (if validation fails)
+        [HttpPost]
+        public ActionResult Login(LoginViewModel login)
+        {
+          if(!ModelState.IsValid)
+            {
+                return View("Login", login);
+            }
 
+            return RedirectToAction("Login", "Users");
+        }
         // GET: User/Confirmation
         // Return the confirmation view
     }
