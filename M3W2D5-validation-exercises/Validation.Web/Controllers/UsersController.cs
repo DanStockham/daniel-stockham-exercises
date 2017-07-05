@@ -19,11 +19,25 @@ namespace Validation.Web.Controllers
 
         // GET: User/Register
         // Return the empty registration view
-
+        public ActionResult Register()
+        {
+            return View("Register");
+        }
         // POST: User/Register
         // Validate the model and redirect to confirmation (if successful) or return the 
-        // registration view (if validation fails)        
+        // registration view (if validation fails)      
+        [HttpPost]
+        public ActionResult Register(RegistrationViewModel register)
+        {
+            ConfirmationModel prevScreen = new ConfirmationModel();
+            prevScreen.PrevScreen = "register";
+            if (!ModelState.IsValid)
+            {
+                return View("Register", register);
+            }
 
+            return View("Confirmation", prevScreen);
+        }
         // GET: User/Login
         // Return the empty login view
         public ActionResult Login()
@@ -37,18 +51,14 @@ namespace Validation.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
         {
-          if(!ModelState.IsValid)
-            {
-                return View("Login", login);
-            }
+            ConfirmationModel prevScreen = new ConfirmationModel();
+            prevScreen.PrevScreen = "login";
+            if(!ModelState.IsValid)
+              {
+                    return View("Login", login);
+              }
 
-            return RedirectToAction("Confirmation", "Users");
-        }
-        // GET: User/Confirmation
-        // Return the confirmation view
-        public ActionResult Confirmation()
-        {
-            return View("Confirmation");
-        }
+                return View("Confirmation", prevScreen);
+            }
     }
 }

@@ -1,0 +1,61 @@
+﻿@using Validation.Web.Models;
+@model RegistrationViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using(Html.BeginForm("Register", "Users", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("FirstName", "First Name", new { @placeholder = "enter first name" } )
+        @Html.TextBoxFor(m => m.FirstName)
+        @Html.ValidationMessage("FirstName")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("LastName", "Last Name", new { @placeholder = "enter last name" })
+        @Html.TextBoxFor(m => m.LastName)
+        @Html.ValidationMessage("LastName")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Email", "Email", new { @placeholder = "enter your email" })
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessage("Email")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("ConfirmEmail", "Confirm Email", new { @placeholder = "enter your email again" })
+        @Html.TextBoxFor(m => m.ConfirmEmail)
+        @Html.ValidationMessage("ConfirmEmail")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Password", "Password", new { @placeholder = "enter your password" })
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessage("Password")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("ConfirmPassword", "Confirm Password", new { @placeholder = "enter yor password again" })
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        @Html.ValidationMessage("ConfirmPassword")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("BirthDate", "Birth Date", new { @placeholder = "01/01/2000" })
+        @Html.TextBoxFor(m => m.BirthDate)
+        @Html.ValidationMessage("BirthDate")
+    </div>
+
+    <div class="form-group">
+        @Html.Label("NumberOfTickets", "Number of Tickets", new { @placeholder = "enter an amount between 1 and 10" })
+        @Html.TextBoxFor(m => m.NumberOfTickets)
+        @Html.ValidationMessage("NumberOfTickets")
+    </div>
+    <button class="btn">Submit!</button>
+}

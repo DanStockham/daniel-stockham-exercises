@@ -4,6 +4,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using Validation.Web.Models
+@model ConfirmationModel
+
+@{ 
+    string action = "";
+    if(Model.PrevScreen == "login")
+    {
+        action = "logged in";
+    }
+    else if(Model.PrevScreen == "register")
+    {
+        action = "registered";
+    }
+}
+
 <h2>Confirmation</h2>
-<p>You have successfully logged in</p>
+<p>You have successfully @action</p>
 
