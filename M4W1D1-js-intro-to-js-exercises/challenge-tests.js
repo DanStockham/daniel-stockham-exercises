@@ -1,5 +1,5 @@
 ﻿QUnit.test("IQ Test", function (assert) {
-
+        
     assert.equal(3, iqTest("2 4 7 8 10"));
     assert.equal(2, iqTest("1 2 1 1"));
     assert.equal(0, iqTest(""));
