@@ -59,3 +59,14 @@ function titleCase(str, minor) {
 
     return titleCase.join(' ');
 }
+
+function perfectSquare(num) {
+    var sqrt = Math.sqrt(num);
+
+    if (sqrt % Math.floor(Math.sqrt(num)) === 0) {
+        sqrt++;
+        return Math.pow(sqrt, 2);
+    } else {
+        return -1;
+    }
+}
