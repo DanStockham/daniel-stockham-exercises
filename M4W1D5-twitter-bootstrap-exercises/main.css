@@ -1,0 +1,90 @@
+.feature-icons i {
+	font-size: 70px;
+}
+
+.photo {
+	position: relative;
+	margin-bottom: 20px;
+	height: 100%;
+}
+
+.jumbotron-btn {
+	margin-bottom: 20px;
+	font-size: 1.4em;
+}
+
+.jumbotron-btn i {
+	padding-left: 10px;
+}
+
+.panel-danger .panel-heading {
+	background-color: #a94442;
+}
+
+.panel-success .panel-heading {
+	background-color: #3c763d;
+}
+
+.jumbotron {
+	background: black;
+	color: white;
+}
+
+.jumbotron h1 {
+	font-weight: bold;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.subscript {
+	font-size: .5em;
+}
+
+.padding {
+}
+
+td {
+	padding: 10px;
+}
+
+table thead h2,
+table thead div {
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+table thead h2 {
+	font-size: 2em;
+}
+
+table thead div {
+	font-size: 3em;
+	padding: 20px;
+}
+
+blockquote { 
+	position: absolute;
+	color: white;
+	bottom: 5%;
+	background: rgba(0,0,0, 0.5);
+	width: 60%;
+	
+}
+
+#features {
+	padding-bottom: 30px;
+}
+
+#section table {
+	padding: 0 50px;
+}
+
+@media (min-width: 700px) {
+	.jumbotron {
+		background: url("img/te_present_906x600.jpg");
+	}
+	
+}
