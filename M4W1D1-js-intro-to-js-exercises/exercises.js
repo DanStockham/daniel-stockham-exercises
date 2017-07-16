@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿function sumDouble(num1, num2) {
     if (num1 === num2) {
         return (num1 + num2) * 2;
@@ -148,3 +149,15 @@ function reverseArray(arr) {
     return arr.reverse();
 }
 
+=======
+﻿function countValues(input) {
+    var count = {};
+    for (var i = 0; i < input.length; i++) {
+        if (isNaN(count[input[i]])) {
+            count[input[i]] = 0;
+        }
+        count[input[i]] += 1;
+    }
+    return count;
+}
+>>>>>>> cf326e07c86f5646411603ab4086be47f7dab316
