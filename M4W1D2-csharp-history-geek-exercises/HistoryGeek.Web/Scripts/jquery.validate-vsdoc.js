@@ -75,7 +75,7 @@ $.extend($.fn, {
 					if ( validator.settings.submitHandler ) {
 						if (validator.submitButton) {
 							// insert a hidden input as a replacement for the missing submit button
-							var hidden = $("<input type='hidden'/>").attr("name", validator.submitButton.name).val(validator.submitButton.value).appendTo(validator.currentForm);
+							var hidden = $("<input type='hidden'/>").attr("name", validator.submitButton.name).val(validator.submitButton.value).afterTo(validator.currentForm);
 						}
 						validator.settings.submitHandler.call( validator, validator.currentForm );
 						if (validator.submitButton) {
@@ -737,7 +737,7 @@ $.extend($.validator, {
 					// actually showing the wrapped element is handled elsewhere
 					label = label.hide().show().wrap("<" + this.settings.wrapper + "/>").parent();
 				}
-				if ( !this.labelContainer.append(label).length )
+				if ( !this.labelContainer.after(label).length )
 					this.settings.errorPlacement
 						? this.settings.errorPlacement(label, $(element) )
 						: label.insertAfter(element);

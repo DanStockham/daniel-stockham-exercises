@@ -1276,7 +1276,7 @@
         },
 
         addQs: function (url, qs) {
-            var appender = url.indexOf("?") !== -1 ? "&" : "?",
+            var afterer = url.indexOf("?") !== -1 ? "&" : "?",
                 firstChar;
 
             if (!qs) {
@@ -1284,17 +1284,17 @@
             }
 
             if (typeof (qs) === "object") {
-                return url + appender + $.param(qs);
+                return url + afterer + $.param(qs);
             }
 
             if (typeof (qs) === "string") {
                 firstChar = qs.charAt(0);
 
                 if (firstChar === "?" || firstChar === "&") {
-                    appender = "";
+                    afterer = "";
                 }
 
-                return url + appender + qs;
+                return url + afterer + qs;
             }
 
             throw new Error("Query string property must be either a string or object.");
@@ -2050,7 +2050,7 @@
                             loadingFixIntervalId = window.setInterval(function () {
                                 var tempFrame = createFrame();
 
-                                window.document.body.appendChild(tempFrame);
+                                window.document.body.afterChild(tempFrame);
                                 window.document.body.removeChild(tempFrame);
 
                                 tempFrame = null;
@@ -2115,7 +2115,7 @@
             url += "&frameId=" + frameId;
 
             // add frame to the document prior to setting URL to avoid caching issues.
-            window.document.documentElement.appendChild(frame);
+            window.document.documentElement.afterChild(frame);
 
             connection.log("Binding to iframe's load event.");
 

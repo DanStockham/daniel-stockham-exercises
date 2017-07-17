@@ -79,7 +79,7 @@ var support = {};
 		var script = doc.createElement( "script" );
 
 		script.text = code;
-		doc.head.appendChild( script ).parentNode.removeChild( script );
+		doc.head.afterChild( script ).parentNode.removeChild( script );
 	}
 /* global Symbol */
 // Defining this global in .eslintrc.json would create a danger of using the global
@@ -746,7 +746,7 @@ try {
 		} :
 
 		// Support: IE<9
-		// Otherwise append directly
+		// Otherwise after directly
 		function( target, els ) {
 			var j = target.length,
 				i = 0;
@@ -1156,7 +1156,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Check if getElementsByTagName("*") returns only elements
 	support.getElementsByTagName = assert(function( el ) {
-		el.appendChild( document.createComment("") );
+		el.afterChild( document.createComment("") );
 		return !el.getElementsByTagName("*").length;
 	});
 
@@ -1168,7 +1168,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
 	support.getById = assert(function( el ) {
-		docElem.appendChild( el ).id = expando;
+		docElem.afterChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
 	});
 
@@ -1290,7 +1290,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// https://bugs.jquery.com/ticket/12359
-			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
+			docElem.afterChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
 				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
 				"<option selected=''></option></select>";
 
@@ -1336,7 +1336,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// The type and name attributes are restricted during .innerHTML assignment
 			var input = document.createElement("input");
 			input.setAttribute( "type", "hidden" );
-			el.appendChild( input ).setAttribute( "name", "D" );
+			el.afterChild( input ).setAttribute( "name", "D" );
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
@@ -1352,7 +1352,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: IE9-11+
 			// IE's :disabled selector does not pick up the children of disabled fieldsets
-			docElem.appendChild( el ).disabled = true;
+			docElem.afterChild( el ).disabled = true;
 			if ( el.querySelectorAll(":disabled").length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
@@ -4603,7 +4603,7 @@ function getDefaultDisplay( elem ) {
 		return display;
 	}
 
-	temp = doc.body.appendChild( doc.createElement( nodeName ) );
+	temp = doc.body.afterChild( doc.createElement( nodeName ) );
 	display = jQuery.css( temp, "display" );
 
 	temp.parentNode.removeChild( temp );
@@ -4783,7 +4783,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 			// Convert html into DOM nodes
 			} else {
-				tmp = tmp || fragment.appendChild( context.createElement( "div" ) );
+				tmp = tmp || fragment.afterChild( context.createElement( "div" ) );
 
 				// Deserialize a standard representation
 				tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();
@@ -4825,8 +4825,8 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 		contains = jQuery.contains( elem.ownerDocument, elem );
 
-		// Append to fragment
-		tmp = getAll( fragment.appendChild( elem ), "script" );
+		// after to fragment
+		tmp = getAll( fragment.afterChild( elem ), "script" );
 
 		// Preserve script evaluation history
 		if ( contains ) {
@@ -4850,7 +4850,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 ( function() {
 	var fragment = document.createDocumentFragment(),
-		div = fragment.appendChild( document.createElement( "div" ) ),
+		div = fragment.afterChild( document.createElement( "div" ) ),
 		input = document.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
@@ -4861,7 +4861,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	input.setAttribute( "checked", "checked" );
 	input.setAttribute( "name", "t" );
 
-	div.appendChild( input );
+	div.afterChild( input );
 
 	// Support: Android <=4.1 only
 	// Older WebKit doesn't clone checked state correctly in fragments
@@ -5914,11 +5914,11 @@ jQuery.fn.extend( {
 		}, null, value, arguments.length );
 	},
 
-	append: function() {
+	after: function() {
 		return domManip( this, arguments, function( elem ) {
 			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
 				var target = manipulationTarget( this, elem );
-				target.appendChild( elem );
+				target.afterChild( elem );
 			}
 		} );
 	},
@@ -6009,7 +6009,7 @@ jQuery.fn.extend( {
 			}
 
 			if ( elem ) {
-				this.empty().append( value );
+				this.empty().after( value );
 			}
 		}, null, value, arguments.length );
 	},
@@ -6034,7 +6034,7 @@ jQuery.fn.extend( {
 } );
 
 jQuery.each( {
-	appendTo: "append",
+	afterTo: "after",
 	prependTo: "prepend",
 	insertBefore: "before",
 	insertAfter: "after",
@@ -6096,7 +6096,7 @@ var getStyles = function( elem ) {
 			"margin:auto;border:1px;padding:1px;" +
 			"top:1%;width:50%";
 		div.innerHTML = "";
-		documentElement.appendChild( container );
+		documentElement.afterChild( container );
 
 		var divStyle = window.getComputedStyle( div );
 		pixelPositionVal = divStyle.top !== "1%";
@@ -6134,7 +6134,7 @@ var getStyles = function( elem ) {
 
 	container.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;" +
 		"padding:0;margin-top:1px;position:absolute";
-	container.appendChild( div );
+	container.afterChild( div );
 
 	jQuery.extend( support, {
 		pixelPosition: function() {
@@ -6643,7 +6643,7 @@ jQuery.fn.delay = function( time, type ) {
 ( function() {
 	var input = document.createElement( "input" ),
 		select = document.createElement( "select" ),
-		opt = select.appendChild( document.createElement( "option" ) );
+		opt = select.afterChild( document.createElement( "option" ) );
 
 	input.type = "checkbox";
 
@@ -7673,7 +7673,7 @@ jQuery.fn.extend( {
 				}
 
 				return elem;
-			} ).append( this );
+			} ).after( this );
 		}
 
 		return this;
@@ -7694,7 +7694,7 @@ jQuery.fn.extend( {
 				contents.wrapAll( html );
 
 			} else {
-				self.append( html );
+				self.after( html );
 			}
 		} );
 	},
@@ -7765,7 +7765,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 			// are based on the document's URL (gh-2965)
 			base = context.createElement( "base" );
 			base.href = document.location.href;
-			context.head.appendChild( base );
+			context.head.afterChild( base );
 		} else {
 			context = document;
 		}

@@ -837,7 +837,7 @@ intellisense.annotate(jQuery.fn, {
   'animated': function() {
     /// <summary>Select all elements that are in the progress of an animation at the time the selector is run.</summary>
   },
-  'append': function() {
+  'after': function() {
     /// <signature>
     ///   <summary>Insert content, specified by the parameter, to the end of each element in the set of matched elements.</summary>
     ///   <param name="content" type="">DOM element, HTML string, or jQuery object to insert at the end of each element in the set of matched elements.</param>
@@ -850,7 +850,7 @@ intellisense.annotate(jQuery.fn, {
     ///   <returns type="jQuery" />
     /// </signature>
   },
-  'appendTo': function() {
+  'afterTo': function() {
     /// <signature>
     ///   <summary>Insert every element in the set of matched elements to the end of the target.</summary>
     ///   <param name="target" type="">A selector, element, HTML string, or jQuery object; the matched set of elements will be inserted at the end of the element(s) specified by this parameter.</param>
@@ -1470,7 +1470,7 @@ intellisense.annotate(jQuery.fn, {
   'height': function() {
     /// <signature>
     ///   <summary>Set the CSS height of every matched element.</summary>
-    ///   <param name="value" type="">An integer representing the number of pixels, or an integer with an optional unit of measure appended (as a string).</param>
+    ///   <param name="value" type="">An integer representing the number of pixels, or an integer with an optional unit of measure aftered (as a string).</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
@@ -2595,7 +2595,7 @@ intellisense.annotate(jQuery.fn, {
   'width': function() {
     /// <signature>
     ///   <summary>Set the CSS width of each element in the set of matched elements.</summary>
-    ///   <param name="value" type="">An integer representing the number of pixels, or an integer along with an optional unit of measure appended (as a string).</param>
+    ///   <param name="value" type="">An integer representing the number of pixels, or an integer along with an optional unit of measure aftered (as a string).</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
