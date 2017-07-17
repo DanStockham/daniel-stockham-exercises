@@ -1,7 +1,21 @@
 ﻿/// <reference path="../jquery-3.1.1.js" />
 
 $(document).ready(function () {
-    
+
+    $('#SameShipping').change(function () {
+        $('#ShippingAddress1').val($('#BillingAddress1').val());
+        $('#ShippingAddress2').val($('#BillingAddress2').val());
+        $('#ShippingCity').val($('#BillingCity').val());
+        $('#ShippingState').val($('#BillingState').val());
+        $('#ShippingPostalCode').val($('#BillingPostalCode').val());
+
+    });
+
+    $('input[name="ShippingType"]').change(function () {
+        console.log();
+        $('#shipping span').text($('input[name="ShippingType"]').data().cost);
+    })
+
     var shipLoc = $(".ship").attr("id");
     var col = parseInt(shipLoc.substr(4, 1));
     var row = parseInt(shipLoc.substr(13, 1));

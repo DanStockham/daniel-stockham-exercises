@@ -2,18 +2,71 @@
 /// <reference path="../jquery.validate.js" />
 
 $(document).ready(function () {
-    $('#SameShipping').change(function() {
-        $('#ShippingAddress1').val($('#BillingAddress1').val());
-        $('#ShippingAddress2').val($('#BillingAddress2').val());
-        $('#ShippingCity').val($('#BillingCity').val());
-        $('#ShippingState').val($('#BillingState').val());
-        $('#ShippingPostalCode').val($('#BillingPostalCode').val());
+    $('#contact').validate({
+        debug: true,
+        rules: {
+            billingAddress1: {
+                required: true
+            },
+            billingAddress2: {
+                required: true
+            },
+            billingCity: {
+                required: true
+            },
+            billingState: {
+                required: true
+            },
+            billingPostalCode: {
+                required: true,
+                minLength: 5,
+                numbersonly: true
+            },
+            shippingAddress1: {
+                required: true
+            },
+            shippingCity: {
+                required: true
+            },
+            shippingState: {
+                required: true
+            },
+            shippingPostalCode: {
+                required: true
+            },
+            nameOnCard: {
+                required: true,
+                lettersonly: true
+            },
+            creditCardNumber: {
+                required: true,
+                numbersonly: true,
+                minLength: 16
+            },
+            expirationDate: {
+                required: true,
+                date: true
+            },
+            shippingInfo: {
+                required: true
+            }
+        },
+        messages: {
+            billingPostalCode: {
+                minLength: "Please enter a valid zipcode",
+                numbersonly: "Please enter a valid zipcode"
+            },
+            creditCardNumber: {
+                numbersonly: "Please enter a valid credit card number",
+                minLength: "Please enter a valid credit card number"
+            },
+            expirationDate: {
+                date: "Please enter a valid date"
+            }
+        
+        },
+        errorClass: "error"
 
-    });
-
-    $('input[name="ShippingType"]').change(function () {
-        console.log();
-        $('#shipping span').text($('input[name="ShippingType"]').data().cost);
     })
    
 });
