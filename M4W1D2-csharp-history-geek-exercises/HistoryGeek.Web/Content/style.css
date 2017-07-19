@@ -91,6 +91,9 @@ p.attribute {
             margin-bottom: 2px;
         }
 
+span.field-validation-error {
+    color: #C33333;
+}
 label.field-validation-error {
     color: #C33333;
     vertical-align: middle;

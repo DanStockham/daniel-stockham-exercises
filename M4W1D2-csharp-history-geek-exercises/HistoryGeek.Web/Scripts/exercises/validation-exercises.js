@@ -2,7 +2,7 @@
 /// <reference path="../jquery.validate.js" />
 
 $(document).ready(function () {
-    $('#SameShipping').change(function() {
+    $('#SameShipping').change(function () {
         $('#ShippingAddress1').val($('#BillingAddress1').val());
         $('#ShippingAddress2').val($('#BillingAddress2').val());
         $('#ShippingCity').val($('#BillingCity').val());
@@ -12,14 +12,32 @@ $(document).ready(function () {
     });
 
     $('input[name="ShippingType"]').change(function (evt) {
-        
+
         $('#shipping span').text(evt.target.dataset.cost);
         $('#grandtotal span').text(
-            "$" + (parseFloat(evt.target.dataset.cost.substr(1)) + parseFloat($('.price').text().substr(1)))    
+            "$" + (parseFloat(evt.target.dataset.cost.substr(1)) + parseFloat($('.price').text().substr(1)))
         );
     })
 
-    var validator = $('#checkout').validate({
+    $("#mylogin").validate({
+        rules: {
+            EmailAddress: {
+                required: true
+
+            },
+            Password: {
+                required: true
+
+            }
+        },
+        messages: {
+            EmailAddress: "*",
+            Password: "*"
+        },
+        errorClass: 'field-validation-error'
+    });
+
+    $('#checkout').validate({
         debug: true,
         rules: {
             BillingAddress1: {
