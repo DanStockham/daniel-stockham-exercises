@@ -11,11 +11,35 @@ $(document).ready(function () {
 
     });
 
-    $('input[name="ShippingType"]').change(function () {
-        console.log();
-        $('#shipping span').text($('input[name="ShippingType"]').data().cost);
+    $('input[name="ShippingType"]').change(function (evt) {
+        
+        $('#shipping span').text(evt.target.dataset.cost);
+        $('#grandtotal span').text(
+            "$" + (parseFloat(evt.target.dataset.cost.substr(1)) + parseFloat($('.price').text().substr(1)))    
+        );
     })
-   
+
+    var validator = $('#checkout').validate({
+        debug: true,
+        rules: {
+            BillingAddress1: {
+                required: true
+            },
+            BillingCity: {
+                required: true,
+
+            }
+
+        },
+        messages: {
+            billingAddress1: "The address entered is not valid",
+            billingCity: "Please enter a valid city name"
+        },
+        errorClass: 'field-validation-error',
+        errorLabelContainer: "#errors ",
+        wrapper: "li"
+    });
+
 });
 
 

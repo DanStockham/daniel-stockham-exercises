@@ -70,7 +70,7 @@ p.attribute {
 }
 
 #errorSummary {
-    display: none;
+    /*display: none;*/
     width: 55%;
     background-color: #FFF69E;
     border-radius: 4px;

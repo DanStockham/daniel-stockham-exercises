@@ -75,7 +75,7 @@ $.extend( $.fn, {
 							hidden = $( "<input type='hidden'/>" )
 								.attr( "name", validator.submitButton.name )
 								.val( $( validator.submitButton ).val() )
-								.afterTo( validator.currentForm );
+								.appendTo( validator.currentForm );
 						}
 						result = validator.settings.submitHandler.call( validator, validator.currentForm, event );
 						if ( validator.submitButton ) {
@@ -939,7 +939,7 @@ $.extend( $.validator, {
 					place = error.hide().show().wrap( "<" + this.settings.wrapper + "/>" ).parent();
 				}
 				if ( this.labelContainer.length ) {
-					this.labelContainer.after( place );
+					this.labelContainer.append( place );
 				} else if ( this.settings.errorPlacement ) {
 					this.settings.errorPlacement.call( this, place, $( element ) );
 				} else {

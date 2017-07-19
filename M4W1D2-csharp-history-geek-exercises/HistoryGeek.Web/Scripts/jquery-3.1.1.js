@@ -79,7 +79,7 @@ var support = {};
 		var script = doc.createElement( "script" );
 
 		script.text = code;
-		doc.head.afterChild( script ).parentNode.removeChild( script );
+		doc.head.appendChild( script ).parentNode.removeChild( script );
 	}
 /* global Symbol */
 // Defining this global in .eslintrc.json would create a danger of using the global
@@ -746,7 +746,7 @@ try {
 		} :
 
 		// Support: IE<9
-		// Otherwise after directly
+		// Otherwise append directly
 		function( target, els ) {
 			var j = target.length,
 				i = 0;
@@ -1156,7 +1156,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Check if getElementsByTagName("*") returns only elements
 	support.getElementsByTagName = assert(function( el ) {
-		el.afterChild( document.createComment("") );
+		el.appendChild( document.createComment("") );
 		return !el.getElementsByTagName("*").length;
 	});
 
@@ -1168,7 +1168,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
 	support.getById = assert(function( el ) {
-		docElem.afterChild( el ).id = expando;
+		docElem.appendChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
 	});
 
@@ -1290,7 +1290,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// https://bugs.jquery.com/ticket/12359
-			docElem.afterChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
+			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
 				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
 				"<option selected=''></option></select>";
 
@@ -1336,7 +1336,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// The type and name attributes are restricted during .innerHTML assignment
 			var input = document.createElement("input");
 			input.setAttribute( "type", "hidden" );
-			el.afterChild( input ).setAttribute( "name", "D" );
+			el.appendChild( input ).setAttribute( "name", "D" );
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
@@ -1352,7 +1352,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: IE9-11+
 			// IE's :disabled selector does not pick up the children of disabled fieldsets
-			docElem.afterChild( el ).disabled = true;
+			docElem.appendChild( el ).disabled = true;
 			if ( el.querySelectorAll(":disabled").length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
@@ -4603,7 +4603,7 @@ function getDefaultDisplay( elem ) {
 		return display;
 	}
 
-	temp = doc.body.afterChild( doc.createElement( nodeName ) );
+	temp = doc.body.appendChild( doc.createElement( nodeName ) );
 	display = jQuery.css( temp, "display" );
 
 	temp.parentNode.removeChild( temp );
@@ -4783,7 +4783,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 			// Convert html into DOM nodes
 			} else {
-				tmp = tmp || fragment.afterChild( context.createElement( "div" ) );
+				tmp = tmp || fragment.appendChild( context.createElement( "div" ) );
 
 				// Deserialize a standard representation
 				tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();
@@ -4825,8 +4825,8 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 		contains = jQuery.contains( elem.ownerDocument, elem );
 
-		// after to fragment
-		tmp = getAll( fragment.afterChild( elem ), "script" );
+		// Append to fragment
+		tmp = getAll( fragment.appendChild( elem ), "script" );
 
 		// Preserve script evaluation history
 		if ( contains ) {
@@ -4850,7 +4850,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 ( function() {
 	var fragment = document.createDocumentFragment(),
-		div = fragment.afterChild( document.createElement( "div" ) ),
+		div = fragment.appendChild( document.createElement( "div" ) ),
 		input = document.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
@@ -4861,7 +4861,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	input.setAttribute( "checked", "checked" );
 	input.setAttribute( "name", "t" );
 
-	div.afterChild( input );
+	div.appendChild( input );
 
 	// Support: Android <=4.1 only
 	// Older WebKit doesn't clone checked state correctly in fragments
@@ -5914,11 +5914,11 @@ jQuery.fn.extend( {
 		}, null, value, arguments.length );
 	},
 
-	after: function() {
+	append: function() {
 		return domManip( this, arguments, function( elem ) {
 			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
 				var target = manipulationTarget( this, elem );
-				target.afterChild( elem );
+				target.appendChild( elem );
 			}
 		} );
 	},
@@ -6009,7 +6009,7 @@ jQuery.fn.extend( {
 			}
 
 			if ( elem ) {
-				this.empty().after( value );
+				this.empty().append( value );
 			}
 		}, null, value, arguments.length );
 	},
@@ -6034,7 +6034,7 @@ jQuery.fn.extend( {
 } );
 
 jQuery.each( {
-	afterTo: "after",
+	appendTo: "append",
 	prependTo: "prepend",
 	insertBefore: "before",
 	insertAfter: "after",
@@ -6096,7 +6096,7 @@ var getStyles = function( elem ) {
 			"margin:auto;border:1px;padding:1px;" +
 			"top:1%;width:50%";
 		div.innerHTML = "";
-		documentElement.afterChild( container );
+		documentElement.appendChild( container );
 
 		var divStyle = window.getComputedStyle( div );
 		pixelPositionVal = divStyle.top !== "1%";
@@ -6134,7 +6134,7 @@ var getStyles = function( elem ) {
 
 	container.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;" +
 		"padding:0;margin-top:1px;position:absolute";
-	container.afterChild( div );
+	container.appendChild( div );
 
 	jQuery.extend( support, {
 		pixelPosition: function() {
@@ -7429,7 +7429,7 @@ jQuery.fn.delay = function( time, type ) {
 ( function() {
 	var input = document.createElement( "input" ),
 		select = document.createElement( "select" ),
-		opt = select.afterChild( document.createElement( "option" ) );
+		opt = select.appendChild( document.createElement( "option" ) );
 
 	input.type = "checkbox";
 
@@ -8524,7 +8524,7 @@ function addToPrefiltersOrTransports( structure ) {
 					dataType = dataType.slice( 1 ) || "*";
 					( structure[ dataType ] = structure[ dataType ] || [] ).unshift( func );
 
-				// Otherwise after
+				// Otherwise append
 				} else {
 					( structure[ dataType ] = structure[ dataType ] || [] ).push( func );
 				}
@@ -9044,7 +9044,7 @@ jQuery.extend( {
 			// Remember the hash so we can put it back
 			uncached = s.url.slice( cacheURL.length );
 
-			// If data is available, after data to url
+			// If data is available, append data to url
 			if ( s.data ) {
 				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;
 
@@ -9339,7 +9339,7 @@ jQuery.fn.extend( {
 				}
 
 				return elem;
-			} ).after( this );
+			} ).append( this );
 		}
 
 		return this;
@@ -9360,7 +9360,7 @@ jQuery.fn.extend( {
 				contents.wrapAll( html );
 
 			} else {
-				self.after( html );
+				self.append( html );
 			}
 		} );
 	},
@@ -9612,7 +9612,7 @@ jQuery.ajaxTransport( "script", function( s ) {
 				);
 
 				// Use native DOM manipulation to avoid our domManip AJAX trickery
-				document.head.afterChild( script[ 0 ] );
+				document.head.appendChild( script[ 0 ] );
 			},
 			abort: function() {
 				if ( callback ) {
@@ -9760,7 +9760,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 			// are based on the document's URL (gh-2965)
 			base = context.createElement( "base" );
 			base.href = document.location.href;
-			context.head.afterChild( base );
+			context.head.appendChild( base );
 		} else {
 			context = document;
 		}
@@ -9829,7 +9829,7 @@ jQuery.fn.load = function( url, params, callback ) {
 
 				// If a selector was specified, locate the right elements in a dummy div
 				// Exclude scripts to avoid IE 'Permission Denied' errors
-				jQuery( "<div>" ).after( jQuery.parseHTML( responseText ) ).find( selector ) :
+				jQuery( "<div>" ).append( jQuery.parseHTML( responseText ) ).find( selector ) :
 
 				// Otherwise use the full result
 				responseText );
