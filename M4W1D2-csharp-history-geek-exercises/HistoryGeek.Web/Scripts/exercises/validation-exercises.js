@@ -20,7 +20,6 @@ $(document).ready(function () {
     })
 
     $('#form0').validate({
-        debug: true,
         rules: {
             EmailAddress: {
                 required: true,
@@ -46,9 +45,9 @@ $(document).ready(function () {
             }
         },
         errorClass: 'field-validation-error',
-        submitHandler: function (form) {
-            form.submit();
-        }
+        //submitHandler: function (form) {
+        //    form.submit();
+        //}
 
     });
 
