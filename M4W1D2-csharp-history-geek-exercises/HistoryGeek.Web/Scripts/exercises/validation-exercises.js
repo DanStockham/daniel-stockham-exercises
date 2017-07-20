@@ -19,6 +19,43 @@ $(document).ready(function () {
         );
     })
 
+    $('#form0').validate({
+        debug: true,
+        rules: {
+            EmailAddress: {
+                required: true,
+                email: true,
+            },
+            Password: {
+                required: true,
+                minlength: 8
+            },
+            ConfirmPassword: {
+                equalTo: '#Password',
+                minlength: 8,
+                strongpassword: true
+            }
+        },
+        messages: {
+            EmailAddress: {
+                required: "Please enter a valid email address",
+            },
+            Password: {
+                minlength: "Password must be at least 8 characters",
+                required: "Please enter a password"
+            }
+        },
+        errorClass: 'field-validation-error',
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+
+    $.validator.addMethod("strongpassword", function (value, index) {
+        return value.match(/[A-Z]/) && value.match(/[a-z]/) && value.match(/\d/);  //check for one capital letter, one lower case letter, one num
+    }, "Please enter a strong password (one capital, one lower case, and one number");  
+
     $("#mylogin").validate({
         rules: {
             EmailAddress: {
@@ -27,7 +64,6 @@ $(document).ready(function () {
             },
             Password: {
                 required: true
-
             }
         },
         messages: {
@@ -38,7 +74,6 @@ $(document).ready(function () {
     });
 
     $('#checkout').validate({
-        debug: true,
         rules: {
             BillingAddress1: {
                 required: true
