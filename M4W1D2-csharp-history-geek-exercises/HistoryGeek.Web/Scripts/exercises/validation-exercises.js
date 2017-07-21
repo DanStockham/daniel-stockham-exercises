@@ -12,12 +12,40 @@ $(document).ready(function () {
     });
 
     $('input[name="ShippingType"]').change(function (evt) {
+        calculate(evt);
 
-        $('#shipping span').text(evt.target.dataset.cost);
-        $('#grandtotal span').text(
-            "$" + (parseFloat(evt.target.dataset.cost.substr(1)) + parseFloat($('.price').text().substr(1)))
-        );
-    })
+    });
+
+    function calculate() {
+
+        var args = arguments[0] || null;
+        console.log(args);
+        if (args) {
+            $('#shipping span').text(args.target.dataset.cost);
+            $('#grandtotal span').text(
+                "$" + (parseFloat(args.target.dataset.cost.substr(1)) + parseFloat($('#shipping span').text().substr(1)))
+            );
+
+            if (!isNaN(parseInt($('#tax span').text().substr(1)))) {
+                $('#grandtotal span').text(
+                    "$" + (parseFloat(args.target.dataset.cost.substr(1)) + parseFloat($('.price').text().substr(1)) + parseInt($('#tax span').text().substr(1)))
+                );
+            }
+        } else {
+            console.log($("#shipping-info input:checked").data().cost.substr(1));
+            $('#shipping span').text($("#shipping-info input:checked").data().cost);
+            $('#grandtotal span').text(
+                "$" + (parseFloat($("#shipping-info input:checked").data().cost.substr(1)) + parseFloat($('#shipping span').text().substr(1)))
+            );
+
+            if (!isNaN(parseInt($('#tax span').text().substr(1)))) {
+                $('#grandtotal span').text(
+                    "$" + (parseFloat($("#shipping-info input:checked").data().cost.substr(1)) + parseFloat($('.price').text().substr(1)) + parseInt($('#tax span').text().substr(1)))
+                );
+            }
+        }
+       
+    }
 
     $('#form0').validate({
         rules: {
@@ -163,6 +191,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 $('#tax span').text('$' + data);
+                calculate();
             },
             error: function (err) {
                 console.log(err);
