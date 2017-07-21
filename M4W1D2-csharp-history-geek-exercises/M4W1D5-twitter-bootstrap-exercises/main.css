@@ -42,13 +42,7 @@
 	font-size: .5em;
 }
 
-.center {
-	float: none;
-	margin: 0 auto;
-}
-
-h1 {
-	font-weight: bold;
+.padding {
 }
 
 td {
@@ -93,14 +87,4 @@ blockquote {
 		background: url("img/te_present_906x600.jpg");
 	}
 	
-}
-
-@media (min-width: 1100px) {
-	#signup table {
-		margin-right: 12%;
-	}
-	
-	#signup table:last-child {
-		margin-right: 0;
-}
 }
