@@ -83,12 +83,12 @@ $(document).ready(function () {
             },
             BillingState: {
                 required: true,
-                letterssonly: true
+                lettersonly: true
             },
             BillingPostalCode: {
                 required: true,
-                numbersonly: true,
-                minLength: 5
+                digits: true,
+                minlength: 5
             },
             ShippingAddress1: {
                 required: true
@@ -144,6 +144,32 @@ $(document).ready(function () {
         wrapper: "li"
     });
 
+    
+    $('body').keydown(function () {
+        var zipcode = $('#BillingPostalCode').val();
+        var subtotal = parseInt($('.price').text().substr(1));
+
+        if ($('#BillingPostalCode').valid()) {
+            getTax(zipcode, subtotal);
+        }
+    });
+
+    function getTax(zipcode, subtotal) {
+        console.log(window.location.origin);
+        $.ajax({
+            url: '/api/getTax',
+            type: 'get',
+            data: "billingZipCode=" + zipcode + "&subtotal=" + subtotal,
+            success: function (data) {
+                console.log(data);
+                $('#tax span').text('$' + data);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
+    
 });
 
 
