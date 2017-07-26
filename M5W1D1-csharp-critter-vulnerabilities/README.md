@@ -28,11 +28,9 @@ Day 2
 
 1. Implement client side validation for password strength rules - Implement multiple different custom validators, one for each rule rather than one big validator for all. This makes it easier to give the user targeted feedback about what exactly is wrong with their password. Implement server-side validation of password strength that mimics the client-side validation
 
-
 2. Exercise Prevent Session Fixation - Demonstrate how a session fixation attack could be executed. Fix vulnerability by creating a new session after successful login. Demonstrate that the session fixation vulnerability no longer exists
 
 Day 3
-
 
 1. Demonstrate that Critter does not enforce access control checks
 
@@ -43,4 +41,11 @@ Day 3
 4. After authenticating, the user is redirected back to the resource of their original request. This should be implemented by passing a query string parameter to the login page in order to set up an insecure redirect
 
 5. Build "delete message" function - Build functionality to delete a message and do it with access control
-Review solution with them to make sure that they are accounting for a user's access to a particular message
+
+Day 4
+
+1. Implement a defense of the new message form using the Synchronizer Token Pattern
+
+2. Implement a defense of the password change form by adding a "current password" field to the form.
+
+3. Fix the open redirect after authentication
