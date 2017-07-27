@@ -15,7 +15,7 @@
 
         <li class="message @className">
             <span class="username">@message.Sender</span>
-            <span class="message-text">@Html.Raw(message.MessageText)</span>
+            <span class="message-text">@message.MessageText</span>
             <time class="timeago timestamp" datetime="@message.CreatedDate.ToString("o")">@message.CreatedDate.TimeAgo()</time>
         </li>
     }
