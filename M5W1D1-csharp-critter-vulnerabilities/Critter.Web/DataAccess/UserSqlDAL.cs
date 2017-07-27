@@ -23,14 +23,15 @@ namespace Critter.Web.DataAccess
         {
             try
             {
-                string sql = $"UPDATE app_user SET password = '{newPassword}' WHERE user_name = '{username}'";
+                string sql = $"UPDATE app_user SET password = @newPassword WHERE user_name = @username";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
-
+                    cmd.Parameters.AddWithValue("@newPassword", newPassword);
+                    cmd.Parameters.AddWithValue("@username", username);
                     int result = cmd.ExecuteNonQuery();
 
                     return result > 0;
@@ -74,13 +75,14 @@ namespace Critter.Web.DataAccess
 
             try
             {
-                string sql = $"SELECT user_name FROM app_user WHERE user_name LIKE '{startsWith}%';";
+                string sql = $"SELECT user_name FROM app_user WHERE user_name LIKE '@startsWith%';";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@startsWith", startsWith);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -102,13 +104,14 @@ namespace Critter.Web.DataAccess
 
             try
             {
-                string sql = $"SELECT TOP 1 * FROM app_user WHERE user_name = '{username}'";
+                string sql = $"SELECT TOP 1 * FROM app_user WHERE user_name = @username";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -137,13 +140,15 @@ namespace Critter.Web.DataAccess
 
             try
             {
-                string sql = $"SELECT TOP 1 * FROM app_user WHERE user_name = '{username}' AND password = '{password}'";
+                string sql = $"SELECT TOP 1 * FROM app_user WHERE user_name = @username AND password = @password";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
