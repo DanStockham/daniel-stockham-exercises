@@ -49,3 +49,7 @@ Day 4
 2. Implement a defense of the password change form by adding a "current password" field to the form.
 
 3. Fix the open redirect after authentication
+
+Day 5
+
+1. Critter stores passwords as clear text. Modify the login, create user, and change password functionality to use password hashing
