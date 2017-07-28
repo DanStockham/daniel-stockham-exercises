@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Critter.Web.Filters;
 
 namespace Critter.Web.Controllers
 {
@@ -21,6 +22,7 @@ namespace Critter.Web.Controllers
 
 
         [Route("users/{username}/dashboard")]
+        [CritterAuthorizationFilter]
         public ActionResult Dashboard(string username)
         {
             var conversations = messageDal.GetConversations(username);
@@ -37,6 +39,7 @@ namespace Critter.Web.Controllers
 
 
         [Route("users/{username}/messages")]
+        [CritterAuthorizationFilter]
         public ActionResult SentMessages(string username)
         {
             var messages = messageDal.GetAllSentMessageForUser(username);
@@ -45,6 +48,7 @@ namespace Critter.Web.Controllers
 
         [HttpGet]
         [Route("users/{username}/messages/new")]
+        [CritterAuthorizationFilter]
         public ActionResult NewMessage()
         {
             var model = new NewMessageViewModel();
@@ -52,6 +56,7 @@ namespace Critter.Web.Controllers
         }
 
         [HttpPost]
+        [CritterAuthorizationFilter]
         [Route("users/{username}/messages/new")]
         public ActionResult NewMessage(string username, NewMessageViewModel model)
         {
@@ -75,6 +80,7 @@ namespace Critter.Web.Controllers
 
         [HttpGet]
         [Route("users/{username}/messages/{messageId}/delete")]
+        [CritterAuthorizationFilter]
         public ActionResult DeleteMessage(int messageId, string username)
         {
             var message = messageDal.GetMessage(messageId);
@@ -90,6 +96,7 @@ namespace Critter.Web.Controllers
 
         [HttpPost]
         [Route("users/{username}/messages/{messageId}/delete")]
+        [CritterAuthorizationFilter]
         public ActionResult DeleteMessage(string username, Message model)
         {
             var message = messageDal.GetMessage(model.MessageId);

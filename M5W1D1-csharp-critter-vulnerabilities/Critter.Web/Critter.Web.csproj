@@ -159,6 +159,7 @@
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Filter\CritterAuthorizationFilter.cs" />
     <Compile Include="DataAccess\IMessageDAL.cs" />
     <Compile Include="DataAccess\IUserDAL.cs" />
     <Compile Include="DataAccess\MessageSqlDAL.cs" />

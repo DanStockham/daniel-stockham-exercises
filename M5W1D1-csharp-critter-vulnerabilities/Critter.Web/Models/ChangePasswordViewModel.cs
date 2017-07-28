@@ -9,6 +9,7 @@ namespace Critter.Web.Models
     public class ChangePasswordViewModel
     {
         [Required(ErrorMessage = "This field is required")]
+        [RegularExpression(@"/[a-zA-Z0-9!@#$]/", ErrorMessage = "The password entered doesn't meet the password rules")]
         [Display(Name = "New Password:")]
         public string NewPassword { get; set; }
 

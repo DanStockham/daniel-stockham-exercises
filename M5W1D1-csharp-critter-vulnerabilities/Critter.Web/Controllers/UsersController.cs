@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using Critter.Web.Filters;
 
 namespace Critter.Web.Controllers
 {
@@ -29,6 +30,7 @@ namespace Critter.Web.Controllers
 
         [HttpGet]
         [Route("users/{username}/changepassword")]
+        [CritterAuthorizationFilter]
         public ActionResult ChangePassword(string username)
         {
             var model = new ChangePasswordViewModel();
@@ -37,6 +39,7 @@ namespace Critter.Web.Controllers
 
         [HttpPost]
         [Route("users/{username}/changepassword")]
+        [CritterAuthorizationFilter]
         public ActionResult ChangePassword(string username, ChangePasswordViewModel model)
         {
             if (!ModelState.IsValid)

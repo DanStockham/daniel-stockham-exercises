@@ -56,7 +56,9 @@ namespace Critter.Web.Controllers
         /// </summary>
         public void LogUserIn(string username)
         {
-            Session[UsernameKey] = username;            
+
+            Session[UsernameKey] = username;
+                        
         }
 
         /// <summary>
